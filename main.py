@@ -13,10 +13,16 @@ driver.get(url)
 # Esperar a que la página se cargue, se configura 10 segundos
 driver.implicitly_wait(10)
 
+try:
+    # Encontrar los titulos
+    title_elements = driver.find_elements(By.CSS_SELECTOR, "div[id^='title_']")
 
-title = driver.find_element(By.CSS_SELECTOR, "div[id^='title_']")
+    # mostrar todos los títulos que se cargan en el sítio web
+    for title_element in title_elements:
+        print(title_element.text)
 
-# Mostrar el texto del elemento encontrado
-print(title.text)
+except Exception as e:
+    print("Error:", str(e))
 
-driver.quit()
+finally:
+    driver.quit()
