@@ -14,24 +14,35 @@ driver.get(url)
 driver.implicitly_wait(10)
 
 try:
-    # Encontrar los titulos
+    # Encontrar  los títulos
     title_elements = driver.find_elements(By.CSS_SELECTOR, "div[id^='title_']")
 
-    # Encontrar las distancias
+    # Encontrar  las distancias
     distance_elements = driver.find_elements(By.CSS_SELECTOR, "div[data-testid='listing-card-subtitle'] span span")
 
-    # Mostrar títulos y distancias
-    for title_element, distance_element in zip(title_elements, distance_elements):
+    # Encontrar  las fechas
+    date_elements = driver.find_elements(By.CSS_SELECTOR, "div[data-testid='listing-card-subtitle'] span span")
+
+    # Encontrar los precios
+    price_elements = driver.find_elements(By.CSS_SELECTOR, "div.pquyp1l span._14y1gc ._tyxjp1")
+
+    # Mostrar títulos, distancias, fechas y precios
+    for title_element, distance_element, date_element, price_element in zip(title_elements, distance_elements, date_elements, price_elements):
         title = title_element.text
         distance = distance_element.text
+        date = date_element.text
+        price = price_element.text
 
-        # Imprimir títulos y distancias
+        # Imprimir título, distancia, fecha y precio
         print("Título:", title)
         print("Distancia:", distance)
+        print("Fechas:", date)
+        print("Precio:", price)
         print("=" * 40)
 
 except Exception as e:
     print("Error:", str(e))
 
 finally:
+    # Cerrar el navegador
     driver.quit()
