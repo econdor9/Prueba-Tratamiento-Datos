@@ -44,3 +44,4 @@ Si tienes alguna pregunta o problema, no dudes en abrir un problema (issue) en e
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 
+![Logo](Images/LOGO.png) ![Logo](Images/eig.png)  
